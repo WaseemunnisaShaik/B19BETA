@@ -3,24 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material-module';
+import { NgMaterialModule } from './ng-material/ng-material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { SnackbarService } from './services/snackbar.service';
+import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, MyOrdersComponent],
+  declarations: [
+    AppComponent,
+    UserRegistrationComponent,
+    LoginComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    HttpClientModule,
-    FormsModule
+    NgMaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [SnackbarService],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
